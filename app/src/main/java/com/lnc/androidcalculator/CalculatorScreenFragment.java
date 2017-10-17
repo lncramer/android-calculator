@@ -17,7 +17,7 @@ public class CalculatorScreenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.calculator_screen_fragment, container, false);
 
-        _textView = fragmentView.findViewById(R.id.result_value);
+        _textView = fragmentView.findViewById(R.id.calculationResult);
 
         return fragmentView;
     }

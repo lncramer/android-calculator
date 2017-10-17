@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements ICalculatorFragme
         // Update the result text on the screen fragment
 
         FragmentManager fragmentManager = getFragmentManager();
-        CalculatorScreenFragment screenFragment = fragmentManager.findFragmentById(R.id.calculatorScreenFragment);
+        CalculatorScreenFragment screenFragment = (CalculatorScreenFragment) fragmentManager.findFragmentById(R.id.calculatorScreenFragment);
         screenFragment.updateScreenValue(buttonValue);
     }
 }
