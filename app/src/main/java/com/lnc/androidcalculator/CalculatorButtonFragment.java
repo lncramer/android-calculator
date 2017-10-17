@@ -19,7 +19,7 @@ public class CalculatorButtonFragment extends Fragment implements View.OnClickLi
     @Override
     public void onClick(View view) {
         ICalculatorFragmentCoordinator activity = (ICalculatorFragmentCoordinator) getActivity();
-        Button button = view.findViewById(R.id.calculationResult);
+        Button button = view.findViewById(R.id.calculator_button);
         activity.onButtonClicked(button.getText().toString());
     }
 }

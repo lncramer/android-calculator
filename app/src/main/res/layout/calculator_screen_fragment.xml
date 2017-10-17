@@ -7,7 +7,7 @@
         android:id="@+id/calculationResult"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:text="Result goes here"
+        android:text="0"
         android:background="@color/colorAccent"/>
 
 </android.support.constraint.ConstraintLayout>
