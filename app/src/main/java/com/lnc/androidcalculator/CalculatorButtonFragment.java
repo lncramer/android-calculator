@@ -23,6 +23,10 @@ public class CalculatorButtonFragment extends Fragment implements View.OnClickLi
         return view;
     }
 
+    public void setButtonValue(String text) {
+        _button.setText(text);
+    }
+
     @Override
     public void onClick(View view) {
         ICalculatorFragmentCoordinator activity = (ICalculatorFragmentCoordinator) getActivity();

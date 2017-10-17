@@ -1,7 +1,7 @@
 package com.lnc.androidcalculator;
 
 import android.app.FragmentManager;
-import android.content.res.Resources;
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -13,16 +13,36 @@ public class MainActivity extends AppCompatActivity implements ICalculatorFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        addButtonFragmentsToLayout();
+        addButtonFragmentsToLayout();
     }
 
-//    private void addButtonFragmentsToLayout() {
-//        for(String buttonValue : getResources().getStringArray(R.array.calculator_button_values)) {
-//            CalculatorButtonFragment fragment = new CalculatorButtonFragment(buttonValue);
-//            LinearLayout layout = getCurrentOrAddHorizontalLinearLayout();
-//            layout.addView()
-//        }
-//    }
+    private void addButtonFragmentsToLayout() {
+        for(String buttonValue : getResources().getStringArray(R.array.calculator_button_values)) {
+//            CalculatorButtonFragment fragment = new CalculatorButtonFragment();
+            LinearLayout layout = getCurrentOrAddHorizontalLinearLayout();
+            addFragmentToLayout(layout, buttonValue);
+
+//            fragment.setButtonValue(buttonValue);
+        }
+    }
+
+    private void addFragmentToLayout(LinearLayout layout, String buttonValue) {
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(layout.getId(), new CalculatorButtonFragment());
+        fragmentTransaction.commit();
+
+//        CalculatorButtonFragment createdFragment = fragmentManager
+    }
+
+    private LinearLayout getCurrentOrAddHorizontalLinearLayout() {
+        // for now just always create a new one
+        LinearLayout layout = new LinearLayout(this);
+        LinearLayout containerLayout = findViewById(R.id.calculatorButtonContainer);
+        containerLayout.addView(layout);
+        return layout;
+    }
 
     @Override
     public void onButtonClicked(String buttonValue) {
